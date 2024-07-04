@@ -1,12 +1,11 @@
-import ItemsList from "./ItemsList"
-
+import ItemsList from "../ItemPage/Items/ItemsList";
 
 const HomePage = () => {
   return (
     <>
-      <ItemsList/>
+      <ItemsList />
     </>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

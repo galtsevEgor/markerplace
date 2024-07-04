@@ -1,0 +1,10 @@
+.cart {
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+
+  .cartItem {
+    display: flex;
+    margin-bottom: 20px;
+  }
+}

@@ -8,6 +8,7 @@ import Header from "./Components/Header/Header";
 import { loginUser } from "./store/slices/AuthSlice";
 import { useAppDispatch } from "./hooks/hooks";
 import ItemPage from "./Pages/ItemPage/ItemPage";
+import CartPage from "./Pages/CartPage/Cart";
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -23,9 +24,10 @@ const App: React.FC = () => {
     <Router>
       <Header />
         <Routes>
-          <Route path="*" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/cart" element={<CartPage/>} />
           <Route path="/item/:id" element={<ItemPage />} />
           <Route
             path="/dashboard"

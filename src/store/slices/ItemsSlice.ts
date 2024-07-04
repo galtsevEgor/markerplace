@@ -48,6 +48,19 @@ export const addReview = createAsyncThunk(
   }
 );
 
+export const deleteReview = createAsyncThunk(
+  "items/deleteReview",
+  async ({ itemId, reviewId }: { itemId: string; reviewId: string }) => {
+    const response = await axios.get(`http://localhost:5000/items/${itemId}`);
+    const updatedItem = {
+      ...response.data,
+      reviews: response.data.reviews.filter((review: Review) => review.id !== reviewId),
+    };
+    await axios.put(`http://localhost:5000/items/${itemId}`, updatedItem);
+    return { itemId, reviewId };
+  }
+);
+
 const itemsSlice = createSlice({
   name: "items",
   initialState,
@@ -71,9 +84,17 @@ const itemsSlice = createSlice({
         if (existingItem) {
           existingItem.reviews.push(review);
         }
+      })
+      .addCase(deleteReview.fulfilled, (state, action) => {
+        const { itemId, reviewId } = action.payload;
+        const existingItem = state.items.find((item) => item.id === itemId);
+        if (existingItem) {
+          existingItem.reviews = existingItem.reviews.filter((review) => review.id !== reviewId);
+        }
       });
   },
 });
 
 export default itemsSlice.reducer;
+
 

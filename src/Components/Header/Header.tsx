@@ -23,7 +23,7 @@ const Header: React.FC = () => {
       return (
         <ul className={styles.links}>
           <li>
-            <Link to="/">Главная</Link>
+            <Link to="/home">Главная</Link>
           </li>
           <li>
             <Link to="/login">Войти</Link>
@@ -37,7 +37,7 @@ const Header: React.FC = () => {
       return (
         <ul className={styles.links}>
           <li>
-            <Link to="/">Главная</Link>
+            <Link to="/home">Главная</Link>
           </li>
           <li>
             <Link to="/dashboard">Панель управления</Link>
@@ -54,7 +54,7 @@ const Header: React.FC = () => {
       return (
         <ul className={styles.links}>
           <li>
-            <Link to="/">Главная</Link>
+            <Link to="/home">Главная</Link>
           </li>
           <li>
             <Link to="/cart">Корзина</Link>
