@@ -1,0 +1,108 @@
+.authForm {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  &[data-theme="dark"] {
+    background-color: #333333;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+
+    input,
+    select,
+    button {
+      border-color: #666666;
+      background-color: #444444;
+      color: #ffffff;
+
+      &:focus {
+        outline: none;
+        border-color: #007bff;
+      }
+    }
+
+    button {
+      background-color: #007bff;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+
+    .authLink {
+      color: #007bff;
+
+      &:hover {
+        color: #0056b3;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input,
+    select,
+    button {
+      margin: 0 auto;
+      margin-bottom: 1rem;
+      padding: 0rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+      width: 100%;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+        border-color: #007bff;
+      }
+    }
+
+    button {
+      max-width: 100px;
+      padding: 1rem;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      height: 2.5rem;
+    }
+
+    select {
+      height: 2.5rem;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #ffffff;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+
+  .authLink {
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #0056b3;
+    }
+  }
+}

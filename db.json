@@ -1,0 +1,322 @@
+{
+  "users": [
+    {
+      "id": "7973",
+      "username": "admin",
+      "password": "123123123",
+      "role": "seller"
+    },
+    {
+      "id": "feb6",
+      "username": "123",
+      "password": "123",
+      "role": "buyer"
+    },
+    {
+      "id": "2af0",
+      "username": "user",
+      "password": "123123123",
+      "role": "buyer"
+    },
+    {
+      "id": "36aa",
+      "username": "user2",
+      "password": "123123123",
+      "role": "buyer"
+    },
+    {
+      "id": "25f8",
+      "username": "user3",
+      "password": "123123123",
+      "role": "buyer"
+    },
+    {
+      "id": "8e8f",
+      "username": "Yagei",
+      "password": "123",
+      "role": "buyer"
+    },
+    {
+      "id": "61f4",
+      "username": "Yamegagei",
+      "password": "123",
+      "role": "buyer"
+    },
+    {
+      "id": "ef9e",
+      "username": "zak",
+      "password": "Zak123321",
+      "role": "buyer"
+    }
+  ],
+  "items": [
+    {
+      "id": "1",
+      "title": "Товар 1",
+      "description": "Описание товара 1",
+      "price": 100,
+      "image": "https://via.placeholder.com/150",
+      "author": "admin",
+      "reviews": [
+        {
+          "id": 1,
+          "user": "user1",
+          "comment": "Отличный товар!",
+          "rating": 5
+        },
+        {
+          "id": 2,
+          "user": "user2",
+          "comment": "Понравилось",
+          "rating": 4
+        },
+        {
+          "id": "3",
+          "user": "admin",
+          "comment": "qweqweqweqwe",
+          "rating": 2
+        },
+        {
+          "id": "4",
+          "user": "admin",
+          "comment": "123123123",
+          "rating": 5
+        },
+        {
+          "id": "5",
+          "user": "Yagei",
+          "comment": "123123",
+          "rating": 4
+        },
+        {
+          "id": "6",
+          "user": "Yamegagei",
+          "comment": "123123",
+          "rating": 4
+        },
+        {
+          "id": "7",
+          "user": "Yamegagei",
+          "comment": "jfjffjvhv",
+          "rating": 5
+        },
+        {
+          "id": "8",
+          "user": "user",
+          "comment": "3466543654",
+          "rating": 5
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Товар 2",
+      "description": "Описание товара 2",
+      "price": 200,
+      "image": "https://via.placeholder.com/150",
+      "author": "admin",
+      "reviews": [
+        {
+          "id": 3,
+          "user": "user3",
+          "comment": "Хороший товар",
+          "rating": 4
+        },
+        {
+          "id": 4,
+          "user": "user4",
+          "comment": "Не понравилось",
+          "rating": 2
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Товар 3",
+      "description": "Описание товара 3",
+      "price": 300,
+      "image": "https://via.placeholder.com/150",
+      "author": "admin",
+      "reviews": [
+        {
+          "id": 5,
+          "user": "user5",
+          "comment": "Супер!",
+          "rating": 5
+        },
+        {
+          "id": 6,
+          "user": "user6",
+          "comment": "Так себе",
+          "rating": 3
+        },
+        {
+          "id": "3",
+          "user": "zak",
+          "comment": "otstoi",
+          "rating": 1
+        },
+        {
+          "id": "4",
+          "user": "",
+          "comment": "300?? oahueli",
+          "rating": 1
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Товар 4",
+      "description": "Описание товара 4",
+      "price": 400,
+      "image": "https://via.placeholder.com/150",
+      "author": "admin",
+      "reviews": [
+        {
+          "id": 7,
+          "user": "user7",
+          "comment": "Отличный",
+          "rating": 5
+        },
+        {
+          "id": 8,
+          "user": "user8",
+          "comment": "Могло быть лучше",
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Товар 5",
+      "description": "Описание товара 5",
+      "price": 500,
+      "image": "https://via.placeholder.com/150",
+      "author": "admin",
+      "reviews": [
+        {
+          "id": 9,
+          "user": "user9",
+          "comment": "Понравилось",
+          "rating": 4
+        },
+        {
+          "id": 10,
+          "user": "user10",
+          "comment": "Не очень",
+          "rating": 2
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Товар 6",
+      "description": "Описание товара 6",
+      "price": 600,
+      "image": "https://via.placeholder.com/150",
+      "author": "admin",
+      "reviews": [
+        {
+          "id": 11,
+          "user": "user11",
+          "comment": "Отлично",
+          "rating": 5
+        },
+        {
+          "id": 12,
+          "user": "user12",
+          "comment": "Средне",
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Товар 7",
+      "description": "Описание товара 7",
+      "price": 700,
+      "image": "https://via.placeholder.com/150",
+      "author": "admin",
+      "reviews": [
+        {
+          "id": 13,
+          "user": "user13",
+          "comment": "Хорошо",
+          "rating": 4
+        },
+        {
+          "id": 14,
+          "user": "user14",
+          "comment": "Могло быть лучше",
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Товар 8",
+      "description": "Описание товара 8",
+      "price": 800,
+      "image": "https://via.placeholder.com/150",
+      "author": "admin",
+      "reviews": [
+        {
+          "id": 15,
+          "user": "user15",
+          "comment": "Супер!",
+          "rating": 5
+        },
+        {
+          "id": 16,
+          "user": "user16",
+          "comment": "Не понравилось",
+          "rating": 2
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Товар 9",
+      "description": "Описание товара 9",
+      "price": 900,
+      "image": "https://via.placeholder.com/150",
+      "author": "admin",
+      "reviews": [
+        {
+          "id": 17,
+          "user": "user17",
+          "comment": "Отличный товар",
+          "rating": 5
+        },
+        {
+          "id": 18,
+          "user": "user18",
+          "comment": "Так себе",
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Товар 10",
+      "description": "Описание товара 10",
+      "price": 1000,
+      "image": "https://via.placeholder.com/150",
+      "author": "admin",
+      "reviews": [
+        {
+          "id": 19,
+          "user": "user19",
+          "comment": "Понравилось",
+          "rating": 4
+        },
+        {
+          "id": 20,
+          "user": "user20",
+          "comment": "Не понравилось",
+          "rating": 2
+        }
+      ]
+    }
+  ]
+}

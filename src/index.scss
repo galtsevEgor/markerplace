@@ -1,0 +1,22 @@
+:root {
+  --background-color: white;
+  --text-color: rgb(49, 49, 49);
+  --transition-duration: 0.3s; /* Длительность перехода */
+}
+
+[data-theme="dark"] {
+  --background-color: rgb(19, 19, 19);
+  --text-color: white;
+}
+
+[data-theme="light"] {
+  --background-color: white;
+  --text-color: rgb(49, 49, 49);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-duration),
+    color var(--transition-duration);
+}

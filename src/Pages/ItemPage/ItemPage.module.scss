@@ -1,0 +1,66 @@
+.itemPage {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+
+  img {
+      max-width: 100%;
+      border-radius: 4px;
+  }
+
+  h2 {
+      margin-top: 1rem;
+  }
+
+  .review {
+      background-color: var(--background-color);
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+  }
+
+  .reviewForm {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+
+      input,
+      textarea,
+      button {
+          margin-bottom: 1rem;
+          padding: 0.8rem;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 1rem;
+          transition: border-color 0.3s;
+          width: 100%;
+
+          &:focus {
+              outline: none;
+              border-color: #007bff;
+          }
+      }
+
+      textarea {
+          height: 5rem;
+      }
+
+      button {
+          background-color: #007bff;
+          color: #ffffff;
+          cursor: pointer;
+          font-weight: bold;
+          transition: background-color 0.3s;
+
+          &:hover {
+              background-color: #0056b3;
+          }
+      }
+  }
+}

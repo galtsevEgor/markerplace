@@ -1,0 +1,41 @@
+.item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+  max-width: 200px;
+  text-align: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin: 0.5rem 0;
+  }
+}
+
+.productsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
