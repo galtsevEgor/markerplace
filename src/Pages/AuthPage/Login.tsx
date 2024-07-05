@@ -22,7 +22,7 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (user.userName) {
-      navigate("/");
+      navigate("/home");
     }
   }, [status, user, navigate]);
 

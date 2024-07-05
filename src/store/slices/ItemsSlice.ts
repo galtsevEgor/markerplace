@@ -22,12 +22,16 @@ interface ItemsState {
   items: Item[];
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
+  searchResults: Item[];
+  searchStatus: "idle" | "loading" | "succeeded" | "failed";
 }
 
 const initialState: ItemsState = {
   items: [],
   status: "idle",
   error: null,
+  searchResults: [],
+  searchStatus: "idle",
 };
 
 export const fetchItems = createAsyncThunk("items/fetchItems", async () => {
@@ -54,10 +58,23 @@ export const deleteReview = createAsyncThunk(
     const response = await axios.get(`http://localhost:5000/items/${itemId}`);
     const updatedItem = {
       ...response.data,
-      reviews: response.data.reviews.filter((review: Review) => review.id !== reviewId),
+      reviews: response.data.reviews.filter(
+        (review: Review) => review.id !== reviewId
+      ),
     };
     await axios.put(`http://localhost:5000/items/${itemId}`, updatedItem);
     return { itemId, reviewId };
+  }
+);
+
+export const fetchSearchResults = createAsyncThunk(
+  "items/fetchSearchResults",
+  async (query: string) => {
+    const response = await axios.get(
+      `http://localhost:5000/items?title=${query}`
+    );
+    console.log(response.data);
+    return response.data;
   }
 );
 
@@ -89,12 +106,23 @@ const itemsSlice = createSlice({
         const { itemId, reviewId } = action.payload;
         const existingItem = state.items.find((item) => item.id === itemId);
         if (existingItem) {
-          existingItem.reviews = existingItem.reviews.filter((review) => review.id !== reviewId);
+          existingItem.reviews = existingItem.reviews.filter(
+            (review) => review.id !== reviewId
+          );
         }
+      })
+      .addCase(fetchSearchResults.pending, (state) => {
+        state.searchStatus = "loading";
+      })
+      .addCase(fetchSearchResults.fulfilled, (state, action) => {
+        state.searchStatus = "succeeded";
+        state.searchResults = action.payload;
+      })
+      .addCase(fetchSearchResults.rejected, (state, action) => {
+        state.searchStatus = "failed";
+        state.error = action.error.message || "Could not fetch search results";
       });
   },
 });
 
 export default itemsSlice.reducer;
-
-

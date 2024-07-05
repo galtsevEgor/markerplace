@@ -104,33 +104,73 @@
           "quantity": 1
         },
         {
-          "id": "3",
-          "title": "Товар 3",
-          "description": "Описание товара 3",
-          "price": 300,
+          "id": "1",
+          "title": "Товар 1",
+          "description": "Описание товара 1",
+          "price": 100,
           "image": "https://via.placeholder.com/150",
           "author": "admin",
           "reviews": [
             {
-              "id": 5,
-              "user": "user5",
-              "comment": "Супер!",
+              "id": 1,
+              "user": "user1",
+              "comment": "Отличный товар!",
               "rating": 5
             },
             {
-              "id": 6,
-              "user": "user6",
-              "comment": "Так себе",
-              "rating": 3
+              "id": 2,
+              "user": "user2",
+              "comment": "Понравилось",
+              "rating": 4
             },
             {
               "id": "3",
-              "user": "zak",
-              "comment": "otstoi",
-              "rating": 1
+              "user": "admin",
+              "comment": "qweqweqweqwe",
+              "rating": 2
+            },
+            {
+              "id": "4",
+              "user": "admin",
+              "comment": "123123123",
+              "rating": 5
+            },
+            {
+              "id": "5",
+              "user": "Yagei",
+              "comment": "123123",
+              "rating": 4
+            },
+            {
+              "id": "6",
+              "user": "Yamegagei",
+              "comment": "123123",
+              "rating": 4
+            },
+            {
+              "id": "7",
+              "user": "Yamegagei",
+              "comment": "jfjffjvhv",
+              "rating": 5
+            },
+            {
+              "id": "8",
+              "user": "user",
+              "comment": "наенна",
+              "rating": 4
             }
           ],
-          "quantity": 1
+          "quantity": 3
+        },
+        {
+          "id": "1720117219974",
+          "title": "132",
+          "description": "kugkg",
+          "price": 555,
+          "image": "1",
+          "author": "admin",
+          "reviews": [],
+          "quantity": 2
         }
       ]
     },
@@ -321,6 +361,12 @@
           "user": "user4",
           "comment": "Не понравилось",
           "rating": 2
+        },
+        {
+          "id": "3",
+          "user": "user",
+          "comment": "123",
+          "rating": 5
         }
       ]
     },
@@ -415,6 +461,12 @@
           "user": "user12",
           "comment": "Средне",
           "rating": 3
+        },
+        {
+          "id": "3",
+          "user": "user",
+          "comment": "213123",
+          "rating": 5
         }
       ]
     },
@@ -463,48 +515,29 @@
       ]
     },
     {
-      "id": "9",
-      "title": "Товар 9",
-      "description": "Описание товара 9",
-      "price": 900,
-      "image": "https://via.placeholder.com/150",
+      "id": "1720117219974",
+      "title": "132",
+      "description": "kugkg",
+      "price": 555,
+      "image": "1",
       "author": "admin",
       "reviews": [
         {
-          "id": 17,
-          "user": "user17",
-          "comment": "Отличный товар",
-          "rating": 5
-        },
-        {
-          "id": 18,
-          "user": "user18",
-          "comment": "Так себе",
+          "id": "1",
+          "user": "user",
+          "comment": "efwefwf",
           "rating": 3
         }
       ]
     },
     {
-      "id": "10",
-      "title": "Товар 10",
-      "description": "Описание товара 10",
-      "price": 1000,
-      "image": "https://via.placeholder.com/150",
+      "id": "1720117233268",
+      "title": "142456",
+      "description": "ygu",
+      "price": 132123,
+      "image": "1",
       "author": "admin",
-      "reviews": [
-        {
-          "id": 19,
-          "user": "user19",
-          "comment": "Понравилось",
-          "rating": 4
-        },
-        {
-          "id": 20,
-          "user": "user20",
-          "comment": "Не понравилось",
-          "rating": 2
-        }
-      ]
+      "reviews": []
     }
   ]
 }

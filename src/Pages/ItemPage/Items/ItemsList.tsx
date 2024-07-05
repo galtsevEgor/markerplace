@@ -14,25 +14,28 @@ const ItemsList: React.FC = () => {
     if (status === "idle") {
       dispatch(fetchItems());
     }
-  }, [status, dispatch]);
+  }, [status, dispatch, items]);
 
   return (
     <div className={styles.itemsList}>
       {status === "loading" && <p>Loading...</p>}
       {status === "failed" && <p>Error loading items</p>}
-      {status === "succeeded" &&
-        items.map((item) => (
-          <Item
-            isAuth={authState.isAuth}
-            key={item.id}
-            username={authState.user.userName}
-            id={item.id}
-            title={item.title}
-            description={item.description}
-            price={item.price}
-            image={item.image}
-          />
-        ))}
+      {status === "succeeded" && (
+        <ul className={styles.itemList}>
+          {items.map((item) => (
+            <Item
+              key={item.id}
+              username={authState.user.userName}
+              id={item.id}
+              title={item.title}
+              description={item.description}
+              price={item.price}
+              image={item.image}
+              isAuth={authState.isAuth}
+            />
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

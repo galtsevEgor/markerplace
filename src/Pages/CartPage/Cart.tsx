@@ -25,25 +25,25 @@ const Cart: React.FC = () => {
     setTotalPrice(total);
   }, [cart]);
 
-  const handleDeleteItem = (username: string, itemId: string) => {
-    dispatch(deleteItemCart({ username, itemId })).then(() => {
-      const updatedCart = cart.filter((item) => item.id !== itemId);
-      const total = updatedCart.reduce(
-        (sum, item) => sum + item.price * (item.quantity),
-        0
-      );
-      setTotalPrice(total);
-    });
-  };
+  const handleDeleteItem = (username: null | string, itemId: string) => {
+    if (username) {
+      dispatch(deleteItemCart({ username, itemId })).then(() => {
+        const updatedCart = cart.filter((item) => item.id !== itemId);
+        const total = updatedCart.reduce(
+          (sum, item) => sum + item.price * (item.quantity),
+          0
+        );
+        setTotalPrice(total); 
+    })}}
 
   return (
     <div className={styles.cart}>
-      <h2>Ваша корзина</h2>
+      <h2 className={styles.cartTitle}>Ваша корзина</h2>
       {cart.length === 0 ? (
-        <p>Корзина пуста</p>
+        <p className={styles.emptyCart}>Корзина пуста</p>
       ) : (
         <>
-          <ul>
+          <ul className={styles.cartList}>
             {cart.map((item) => (
               <CartItem
                 key={item.id}

@@ -1,10 +1,122 @@
-.cart {
-  max-width: 1000px;
-  display: flex;
-  justify-content: center;
+$primary-color: #3498db;
+$secondary-color: #cc2e2e;
+$font-color: var(--text-color);
+$background-color: var(--background-color);
+$input-background-color-light: var(--background-color);
+$input-background-color-dark: var(--background-color);
+$border-radius: 5px;
+$box-shadow: 0 6px 12px rgba(0, 0, 0, 0.086);
 
-  .cartItem {
-    display: flex;
+.cart {
+  width: 70vw;
+  margin: auto;
+  padding: 20px;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  background-color: $background-color;
+  color: $font-color;
+  margin-bottom: 20px;
+
+  .cartTitle {
+    color: $primary-color;
     margin-bottom: 20px;
+  }
+
+  .emptyCart {
+    color: #666;
+  }
+
+  .cartList {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .totalPrice {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: $secondary-color;
+  }
+}
+
+.cartItem {
+  display: flex;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 15px;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .itemImage {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: $border-radius;
+    margin-right: 20px;
+  }
+
+  .itemDetails {
+    flex: 1;
+
+    .itemTitle {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: $font-color;
+    }
+
+    .itemDescription {
+      margin-bottom: 10px;
+      color: #666;
+    }
+
+    .itemPrice {
+      font-weight: bold;
+      color: $secondary-color;
+    }
+
+    .quantityControls {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+
+      .quantityButton {
+        background-color: $primary-color;
+        color: #fff;
+        border: none;
+        border-radius: $border-radius;
+        cursor: pointer;
+        padding: 8px;
+        margin-right: 5px;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+
+      .quantity {
+        padding: 0 10px;
+      }
+    }
+
+    .deleteButton {
+      background-color: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      padding: 8px;
+      margin-top: 10px;
+
+      &:hover {
+        background-color: darken(#e74c3c, 10%);
+      }
+    }
   }
 }

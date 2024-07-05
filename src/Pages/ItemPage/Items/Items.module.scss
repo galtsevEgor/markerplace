@@ -1,41 +1,122 @@
-.item {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 1rem;
-  max-width: 200px;
-  text-align: center;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
+$primary-color: #3498db;
+$secondary-color: #cc2e2e;
+$font-color: var(--text-color);
+$background-color: var(--background-color);
+$input-background-color-light: lighten(#f5f5f5, 10%);
+$input-background-color-dark: darken(#313131, 10%);
+$border-radius: 5px;
+$box-shadow: 0 6px 12px rgba(0, 0, 0, 0.086);
 
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-  }
-
-  h3 {
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
-  }
-
-  p {
-    margin: 0.5rem 0;
-  }
+.itemsList {
+  margin-top: 20px; /* Пример отступа от хедера */
 }
 
-.productsList {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+.itemList {
+  list-style: none;
+  padding: 0;
+}
 
-  ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.item {
+  display: flex;
+  width: 70vw;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .imageContainer {
+    flex: 0 0 150px;
+    margin-right: 20px;
+
+    .image {
+      width: 100%;
+      border-radius: $border-radius;
+    }
+  }
+
+  .details {
+    flex: 1;
+
+    .title {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: $primary-color;
+    }
+
+    .description {
+      margin-bottom: 10px;
+      color: #666;
+    }
+
+    .price {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: $secondary-color;
+    }
+
+    .addToCart {
+      padding: 10px 15px;
+      background-color: $primary-color;
+      color: #fff;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+
+    .link {
+      color: $primary-color;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 5px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: darken($primary-color, 10%);
+      }
+    }
+  }
+
+  &[data-theme="dark"] {
+    background-color: $input-background-color-dark;
+    color: $font-color;
+
+    .details {
+      .title {
+        color: $secondary-color;
+      }
+
+      .price {
+        color: $primary-color;
+      }
+
+      .addToCart {
+        background-color: $secondary-color;
+
+        &:hover {
+          background-color: darken($secondary-color, 10%);
+        }
+      }
+
+      .link {
+        color: $secondary-color;
+
+        &:hover {
+          color: darken($secondary-color, 10%);
+        }
+      }
+    }
   }
 }

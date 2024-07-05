@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAppSelector } from '../../hooks/hooks';
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../hooks/hooks";
 
 interface PrivateRouteProps {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
 
   useEffect(() => {
     if (!isAuth) {
-      navigate('/login');
+      navigate("/home");
     }
   }, [isAuth, navigate]);
 
@@ -20,4 +20,3 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
 };
 
 export default PrivateRoute;
-

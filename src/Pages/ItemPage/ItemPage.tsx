@@ -6,11 +6,13 @@ import { addReview, deleteReview, fetchItems, Review } from "../../store/slices/
 import styles from "./ItemPage.module.scss";
 import StarRating from "./StarRating/StarRating";
 import ReviewItem from "./Review/ReviewItem";
+import { addToCart } from "../../store/slices/AuthSlice";
 
 const ItemPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const isAuth = useAppSelector((state) => state.auth.isAuth);
+  const role = useAppSelector((state) => state.auth.user.role);
   const user = useAppSelector((state) => state.auth.user);
   const { items, status } = useAppSelector((state) => state.items);
   const [ratingMessage, setRatingMessage] = useState("");
@@ -74,6 +76,12 @@ const ItemPage: React.FC = () => {
     }
   };
 
+  const handleAddToCart = () => {
+    if (item && user.userName && item.id) {
+      dispatch(addToCart({ username: user.userName, itemId: item.id }));
+    }
+  };
+
   if (status === "loading" || !item) return <p>Loading...</p>;
 
   return (
@@ -83,6 +91,11 @@ const ItemPage: React.FC = () => {
       <p>{item.description}</p>
       <p>Цена: {item.price} руб.</p>
       <p>Автор: {item.author}</p>
+      {isAuth && role === "buyer" && (
+          <button className={styles.addToCart} onClick={handleAddToCart}>
+            Добавить в корзину
+          </button>
+        )}
       <h3>Отзывы:</h3>
 
       {item.reviews.map((review) => (

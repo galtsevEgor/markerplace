@@ -34,12 +34,22 @@ const Item: React.FC<ItemProps> = ({
 
   return (
     <li className={styles.item}>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <p>${price}</p>
-      {isAuth && role === "buyer" &&<button onClick={() => dispatch(handleAddToCart)}>Добавить в корзину</button>}
-      <Link to={`/item/${id}`}>Перейти к товару</Link>
+      <div className={styles.imageContainer}>
+        <img className={styles.image} src={image} alt={title} />
+      </div>
+      <div className={styles.details}>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.description}>{description}</p>
+        <p className={styles.price}>${price}</p>
+        {isAuth && role === "buyer" && (
+          <button className={styles.addToCart} onClick={handleAddToCart}>
+            Добавить в корзину
+          </button>
+        )}
+        <Link className={styles.link} to={`/item/${id}`}>
+          Перейти к товару
+        </Link>
+      </div>
     </li>
   );
 };

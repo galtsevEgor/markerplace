@@ -1,19 +1,34 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { logout } from "../../store/slices/AuthSlice";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import { debounce } from "lodash";
 import styles from "./Header.module.scss";
 
 const Header: React.FC = () => {
   const { user, status, isAuth } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleLogout = () => {
     dispatch(logout());
-    localStorage.removeItem('user')
+    localStorage.removeItem('user');
     navigate("/login");
+  };
+
+  const handleSearchChange = useCallback(
+    debounce((query: string) => {
+      navigate(`/search?query=${query}`);
+    }, 1000),
+    []
+  );
+
+  const onSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    handleSearchChange(query);
   };
 
   const renderLinks = () => {
@@ -74,7 +89,12 @@ const Header: React.FC = () => {
         <h1>БояраШоп</h1>
       </div>
       <div className={styles.search}>
-        <input type="text" placeholder="Поиск..." />
+        <input
+          type="text"
+          placeholder="Поиск..."
+          value={searchQuery}
+          onChange={onSearchInputChange}
+        />
       </div>
       <nav className={styles.nav}>{renderLinks()}</nav>
       <div className={styles.themeSwitcher}>
@@ -85,6 +105,8 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
+
 
 
 

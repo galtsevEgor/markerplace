@@ -9,31 +9,43 @@ import { loginUser } from "./store/slices/AuthSlice";
 import { useAppDispatch } from "./hooks/hooks";
 import ItemPage from "./Pages/ItemPage/ItemPage";
 import CartPage from "./Pages/CartPage/Cart";
+import MyProducts from "./Pages/MyProductsPage/MyProducts";
+import SearchResults from "./Pages/SearchPage/SearchResults";
 
 const App: React.FC = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem("user");
     if (user) {
-      dispatch(loginUser(JSON.parse(user))); 
+      dispatch(loginUser(JSON.parse(user)));
     }
   }, [dispatch]);
 
   return (
     <Router>
-      <Header />
-        <Routes>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/cart" element={<CartPage/>} />
-          <Route path="/item/:id" element={<ItemPage />} />
-          <Route
-            path="/dashboard"
-            element={<PrivateRoute children={undefined}></PrivateRoute>}
-          />
-        </Routes>
+      <div style={{ marginBottom: "20px" }}>
+        <Header />
+      </div>
+      <Routes>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/item/:id" element={<ItemPage />} />
+        <Route path="/my-products" element={<MyProducts />} />
+        <Route path="/search" element={<SearchResults/>} />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <Routes>
+                <Route path="/my-products" element={<MyProducts />} />
+              </Routes>
+            </PrivateRoute>
+          }
+        />
+      </Routes>
     </Router>
   );
 };

@@ -134,6 +134,30 @@ export const checkUsernameExists = createAsyncThunk(
   }
 );
 
+export const fetchUserProducts = createAsyncThunk(
+  "userProducts/fetchUserProducts",
+  async (username: string) => {
+    const response = await axios.get(`http://localhost:5000/items?author=${username}`);
+    return response.data;
+  }
+);
+
+export const addUserProduct = createAsyncThunk(
+  "userProducts/addUserProduct",
+  async (newProduct: Item) => {
+    const response = await axios.post("http://localhost:5000/items", newProduct);
+    return response.data;
+  }
+);
+
+export const deleteUserProduct = createAsyncThunk(
+  "userProducts/deleteUserProduct",
+  async (itemId: string) => {
+    await axios.delete(`http://localhost:5000/items/${itemId}`);
+    return itemId;
+  }
+);
+
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async ({
@@ -264,6 +288,23 @@ const authSlice = createSlice({
       })
       .addCase(fetchCart.fulfilled, (state, action) => {
         state.user.cart = action.payload;
+      })
+      .addCase(fetchUserProducts.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchUserProducts.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.user.products = action.payload;
+      })
+      .addCase(fetchUserProducts.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message || "Failed to fetch products";
+      })
+      .addCase(addUserProduct.fulfilled, (state, action) => {
+        state.user.products.push(action.payload);
+      })
+      .addCase(deleteUserProduct.fulfilled, (state, action) => {
+        state.user.products = state.user.products.filter(product => product.id !== action.payload);
       });
   },
 });

@@ -41,19 +41,32 @@ const CartItem: React.FC<CartItemProps> = ({
     }
   };
 
+  const handleDeleteItem = () => {
+    if (username) {
+      onDeleteItem(username, item.id)
+    }
+  }
+
   return (
     <li className={styles.cartItem}>
-      <img src={item.image} alt={item.title} />
-      <div>
-        <h3>{item.title}</h3>
-        <p>{item.description}</p>
-        <p>Цена: {item.price} руб.</p>
+      <img className={styles.itemImage} src={item.image} alt={item.title} />
+      <div className={styles.itemDetails}>
+        <h3 className={styles.itemTitle}>{item.title}</h3>
+        <p className={styles.itemDescription}>{item.description}</p>
+        <p className={styles.itemPrice}>Цена: {item.price} руб.</p>
         <div className={styles.quantityControls}>
-          <button onClick={handleDecrement}>-</button>
-          <span>{quantity}</span>
-          <button onClick={handleIncrement}>+</button>
+          <button className={styles.quantityButton} onClick={handleDecrement}>
+            -
+          </button>
+          <span className={styles.quantity}>{quantity}</span>
+          <button className={styles.quantityButton} onClick={handleIncrement}>
+            +
+          </button>
         </div>
-        <button onClick={() => onDeleteItem(username as string, item.id)}>
+        <button
+          className={styles.deleteButton}
+          onClick={handleDeleteItem}
+        >
           Удалить
         </button>
       </div>
